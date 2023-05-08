@@ -3,4 +3,9 @@
     <p><b>Type : </b>{{ railroadCrossing.type_lc }}</p>
     <p><b>Location</b> : x = {{ railroadCrossing.fld_geo_x}}, y = {{ railroadCrossing.fld_geo_y }}</p>
     <p><b>City</b> : {{ railroadCrossing.fld_postcode_en_gemeente }}</p>
+
+    <div class="d-grid gap-2 d-md-block">
+        <button type="button" class="btn btn-warning" id="updateButton">Update</button>
+        <button type="button" class="btn btn-danger" id="deleteButton">Delete</button>
+    </div>
 </div>

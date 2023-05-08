@@ -1,6 +1,6 @@
 <h1 id="title">Railroad Crossings</h1>
 
-<p>This component fetches data from Infrabel OpenData.</p>
+<p>On this page, you can consult railroad crossing informations. The data is fetched from Infrabel OpenData.</p>
 
 <p *ngIf="!railroadCrossings?.length"><em>Loading...</em></p>
 
@@ -8,11 +8,11 @@
     <label for="railroadCrossingSelect">Select a railroad crossing:</label>
     <select name="railroadCrossings" id="railroadCrossingSelect" [(ngModel)]="selectedRailroadCrossing"
             class="form-select form-select-sm">
-        <option selected>--Please choose a railroad--</option>
         <option *ngFor="let railroadCrossing of railroadCrossings" [ngValue]="railroadCrossing">
             {{ railroadCrossing.fld_naam_ramses }}>
         </option>
     </select>
 </div>
-
-<app-railroad-detail [railroadCrossing]="selectedRailroadCrossing"></app-railroad-detail>
+<div>
+    <app-railroad-detail [railroadCrossing]="selectedRailroadCrossing"></app-railroad-detail>
+</div>
