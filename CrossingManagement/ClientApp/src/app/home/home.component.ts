@@ -18,6 +18,7 @@ export class HomeComponent {
 
   onChange(railroadCrossing: any): void{
     this.selectedRailroadCrossing = railroadCrossing.target.value;
+    console.log(this.selectedRailroadCrossing?.fld_naam_ramses);
   }
 }
 
