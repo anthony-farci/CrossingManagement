@@ -6,8 +6,9 @@
 
 <div *ngIf="railroadCrossings.length">
     <label for="railroadCrossingSelect">Select a railroad crossing:</label>
-    <select name="railroadCrossings" id="railroadCrossingSelect" [(ngModel)]="selectedRailroadCrossing">
-        <option value="">--Please choose a railroad--</option>
+    <select name="railroadCrossings" id="railroadCrossingSelect" [(ngModel)]="selectedRailroadCrossing"
+            class="form-select form-select-sm">
+        <option selected>--Please choose a railroad--</option>
         <option *ngFor="let railroadCrossing of railroadCrossings" [ngValue]="railroadCrossing">
             {{ railroadCrossing.fld_naam_ramses }}>
         </option>
