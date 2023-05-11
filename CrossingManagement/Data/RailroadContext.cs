@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using CrossingManagement.Models;
 
 namespace CrossingManagement.Data;
 
@@ -8,4 +9,6 @@ public class RailroadContext : DbContext
     : base(options)
     {
     }
+
+    public DbSet<RailroadCrossing> RailroadCrossings => Set<RailroadCrossing>();
 }

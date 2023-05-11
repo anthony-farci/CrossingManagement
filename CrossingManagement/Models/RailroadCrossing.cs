@@ -2,6 +2,7 @@ namespace CrossingManagement.Models;
 
 public class RailroadCrossing
 {
+    public int Id { get; set; }
     public string? fld_naam_ramses { get; set; }
     public string? fld_actief_passief { get; set; }
     public string? type_pn { get; set; }

@@ -1,10 +1,11 @@
-﻿using CrossingManagement.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using CrossingManagement.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSqlServer<RailroadContext>("Data Source=RailroadCrossing.db");
-
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<RailroadContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("RailroadCrossingsDb")));
 
 var app = builder.Build();
 
