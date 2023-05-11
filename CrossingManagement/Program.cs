@@ -1,6 +1,8 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using CrossingManagement.Data;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSqlServer<RailroadContext>("Data Source=RailroadCrossing.db");
 
 builder.Services.AddControllersWithViews();
 
