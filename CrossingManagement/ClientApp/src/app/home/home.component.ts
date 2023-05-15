@@ -12,15 +12,15 @@ export class HomeComponent {
   selectedRailroadCrossing?: RailroadCrossing;
 
   constructor(http: HttpClient, private railroadCrossingsService: RailroadCrossingsService) {
-    http.get<RailroadCrossing[]>("https://opendata.infrabel.be/api/v2/catalog/datasets/geoow/exports/json?limit=-1&offset=0&timezone=UTC").subscribe(result => {
+    /*http.get<RailroadCrossing[]>("https://opendata.infrabel.be/api/v2/catalog/datasets/geoow/exports/json?limit=-1&offset=0&timezone=UTC").subscribe(result => {
       this.railroadCrossings = result;
-    }, error => console.error(error));
+    }, error => console.error(error));*/
   }
 
   ngOnInit(): void {
     this.railroadCrossingsService.getAllRailroadCrossings().subscribe({
       next: (railroadCrossings) => {
-        console.log(railroadCrossings);
+        this.railroadCrossings = railroadCrossings;
       },
       error: (response) => {
         console.log(response);

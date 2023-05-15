@@ -16,4 +16,8 @@ export class RailroadCrossingsService {
   getAllRailroadCrossings(): Observable<RailroadCrossing[]> {
     return this.http.get<RailroadCrossing[]>(this.baseApiUrl + '/api/Railroad');
   }
+
+  addRailroadCrossing(addRailroadCrossingRequest: RailroadCrossing): Observable<RailroadCrossing> {
+    return this.http.post<RailroadCrossing>(this.baseApiUrl + '/api/Railroad', addRailroadCrossingRequest);
+  }
 }

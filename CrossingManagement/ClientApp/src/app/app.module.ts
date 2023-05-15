@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { RailroadDetailComponent } from './railroad-detail/railroad-detail.component';
+import { AddRailroadComponent } from './add-railroad/add-railroad.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    RailroadDetailComponent
+    RailroadDetailComponent,
+    AddRailroadComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -22,6 +24,7 @@ import { RailroadDetailComponent } from './railroad-detail/railroad-detail.compo
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'add', component: AddRailroadComponent }
     ]),
   ],
   providers: [],
