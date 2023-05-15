@@ -9,6 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { RailroadDetailComponent } from './railroad-detail/railroad-detail.component';
 import { AddRailroadComponent } from './add-railroad/add-railroad.component';
+import { EditRailroadComponent } from './edit-railroad/edit-railroad.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AddRailroadComponent } from './add-railroad/add-railroad.component';
     NavMenuComponent,
     HomeComponent,
     RailroadDetailComponent,
-    AddRailroadComponent
+    AddRailroadComponent,
+    EditRailroadComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
