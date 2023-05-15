@@ -26,7 +26,7 @@ public class RailroadService
 
         return newRailroadCrossing;
     }
-    public void Delete(int id)
+    public void DeleteById(int id)
     {
         var railroadToDelete = _context.RailroadCrossings.Find(id);
         if (railroadToDelete is not null)

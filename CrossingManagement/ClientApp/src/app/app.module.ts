@@ -22,7 +22,7 @@ import { RailroadDetailComponent } from './railroad-detail/railroad-detail.compo
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-    ])
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
