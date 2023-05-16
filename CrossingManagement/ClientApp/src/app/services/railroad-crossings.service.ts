@@ -32,4 +32,12 @@ export class RailroadCrossingsService {
   deleteRailroadCrossing(id: string): Observable<RailroadCrossing> {
     return this.http.delete<RailroadCrossing>(this.baseApiUrl + '/api/Railroad/' + id);
   }
+
+  fetchData(): Observable<RailroadCrossing[]> {
+    return this.http.get<RailroadCrossing[]>("https://opendata.infrabel.be/api/v2/catalog/datasets/geoow/exports/json?limit=-1&offset=0&timezone=UTC");
+  }
+
+  fillDatabase(railroadCrossings: RailroadCrossing[]): Observable<RailroadCrossing[]> {
+    return this.http.post<RailroadCrossing[]>(this.baseApiUrl + '/api/Railroad/fill', railroadCrossings);
+  }
 }

@@ -6,12 +6,15 @@
 
 <div *ngIf="railroadCrossings.length">
     <label for="railroadCrossingSelect">Select a railroad crossing:</label>
-    <select name="railroadCrossings" id="railroadCrossingSelect" [(ngModel)]="selectedRailroadCrossing"
+    <div class="input-group">
+        <select name="railroadCrossings" id="railroadCrossingSelect" [(ngModel)]="selectedRailroadCrossing"
             class="form-select form-select-sm">
         <option *ngFor="let railroadCrossing of railroadCrossings" [ngValue]="railroadCrossing">
             {{ railroadCrossing.fld_naam_ramses }}
         </option>
     </select>
+    <button type="button" class="btn btn-primary" id="importButton" (click)="fetchData()">Import</button>
+    </div>
 </div>
 <div>
     <app-railroad-detail [railroadCrossing]="selectedRailroadCrossing"></app-railroad-detail>

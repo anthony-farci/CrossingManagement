@@ -11,11 +11,7 @@ export class HomeComponent {
   public railroadCrossings: RailroadCrossing[] = [];
   selectedRailroadCrossing?: RailroadCrossing;
 
-  constructor(http: HttpClient, private railroadCrossingsService: RailroadCrossingsService) {
-    /*http.get<RailroadCrossing[]>("https://opendata.infrabel.be/api/v2/catalog/datasets/geoow/exports/json?limit=-1&offset=0&timezone=UTC").subscribe(result => {
-      this.railroadCrossings = result;
-    }, error => console.error(error));*/
-  }
+  constructor(http: HttpClient, private railroadCrossingsService: RailroadCrossingsService) { }
 
   ngOnInit(): void {
     this.railroadCrossingsService.getAllRailroadCrossings().subscribe({
@@ -31,6 +27,28 @@ export class HomeComponent {
   onChange(railroadCrossing: any): void {
     this.selectedRailroadCrossing = railroadCrossing.target.value;
     console.log(this.selectedRailroadCrossing?.fld_naam_ramses);
+  }
+
+  //Called when import button is clicked.
+  fetchData() {
+    this.railroadCrossingsService.fetchData().subscribe({
+      next: (railroadCrossings) => {
+        this.railroadCrossings = railroadCrossings;
+        //Operation to fill database with reponse data
+        //Call API to fill database
+        this.railroadCrossingsService.fillDatabase(railroadCrossings).subscribe(
+          () => {
+            console.log('La base de données a été remplie avec succès !');
+          },
+          (error) => {
+            console.error('Une erreur s\'est produite lors du remplissage de la base de données :', error);
+          }
+        );
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    });
   }
 }
 

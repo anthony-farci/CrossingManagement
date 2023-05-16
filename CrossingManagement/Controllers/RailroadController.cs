@@ -80,4 +80,14 @@ public class RailroadController : Controller
 
         return Ok(railroadCrossing);
     }
+
+    [HttpPost]
+    [Route("fill")]
+    public async Task<IActionResult> fillDatabase([FromBody] RailroadCrossing[] railroadCrossings)
+    {
+        _context.RailroadCrossings.RemoveRange(_context.RailroadCrossings);
+        //_context.RailroadCrossings.AddRange(railroadCrossings);
+        await _context.SaveChangesAsync();
+        return Ok();
+    }
 }
