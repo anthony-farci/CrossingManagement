@@ -53,14 +53,14 @@
         </div>
         <div class="mb-3">
             <label for="longitudeInput" class="form-label">Longitude</label>
-            <input type="number" class="form-control" id="longitudeInput" name="longitude" [(ngModel)]="addRailroadCrossingRequest.position_du_passage_a_niveau.lon" required>
+            <input type="number" class="form-control" id="longitudeInput" name="longitude" step="any" [(ngModel)]="addRailroadCrossingRequest.position_du_passage_a_niveau.lon" required>
             <div class="invalid-feedback">
                     This field is required.
             </div>
         </div>
         <div class="mb-3">
             <label for="latitudeInput" class="form-label">Latitude</label>
-            <input type="number" class="form-control" id="latitudeInput" name="latitude" [(ngModel)]="addRailroadCrossingRequest.position_du_passage_a_niveau.lat" required>
+            <input type="number" class="form-control" id="latitudeInput" name="latitude" step="any" [(ngModel)]="addRailroadCrossingRequest.position_du_passage_a_niveau.lat" required>
             <div class="invalid-feedback">
                     This field is required.
             </div>

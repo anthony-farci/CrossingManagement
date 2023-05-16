@@ -86,7 +86,7 @@ public class RailroadController : Controller
     public async Task<IActionResult> fillDatabase([FromBody] RailroadCrossing[] railroadCrossings)
     {
         _context.RailroadCrossings.RemoveRange(_context.RailroadCrossings);
-        //_context.RailroadCrossings.AddRange(railroadCrossings);
+        _context.RailroadCrossings.AddRange(railroadCrossings);
         await _context.SaveChangesAsync();
         return Ok();
     }
