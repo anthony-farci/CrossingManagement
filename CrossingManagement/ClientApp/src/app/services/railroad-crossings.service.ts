@@ -20,4 +20,16 @@ export class RailroadCrossingsService {
   addRailroadCrossing(addRailroadCrossingRequest: RailroadCrossing): Observable<RailroadCrossing> {
     return this.http.post<RailroadCrossing>(this.baseApiUrl + '/api/Railroad', addRailroadCrossingRequest);
   }
+
+  getRailroadCrossingById(id: string): Observable<RailroadCrossing> {
+    return this.http.get<RailroadCrossing>(this.baseApiUrl + '/api/Railroad/' + id);
+  }
+
+  updateRailroadCrossing(id: string, updateRailroadCrossing: RailroadCrossing): Observable<RailroadCrossing> {
+    return this.http.put<RailroadCrossing>(this.baseApiUrl + '/api/Railroad/' + id, updateRailroadCrossing);
+  }
+
+  deleteRailroadCrossing(id: string): Observable<RailroadCrossing> {
+    return this.http.delete<RailroadCrossing>(this.baseApiUrl + '/api/Railroad/' + id);
+  }
 }

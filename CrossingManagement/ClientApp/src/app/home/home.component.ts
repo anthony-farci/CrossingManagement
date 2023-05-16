@@ -35,6 +35,7 @@ export class HomeComponent {
 }
 
 export interface RailroadCrossing {
+  id: number,
   fld_naam_ramses: string;
   fld_actief_passief: string;
   type_pn: string;

@@ -1,1 +1,51 @@
-<p>edit-railroad works!</p>
+
+<div class="container">
+    <h1>Edit railroad crossing</h1>
+
+    <form #form="ngForm" (ngSubmit)="updateRailroadCrossing()">
+        <div class="mb-3">
+            <label for="idInput" class="form-label">Id</label>
+            <input type="text" class="form-control" id="idInput" name="id" [(ngModel)]="railroadCrossingDetail.id" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="nameInput" class="form-label">Name</label>
+            <input type="text" class="form-control" id="nameInput" name="name" [(ngModel)]="railroadCrossingDetail.fld_naam_ramses">
+        </div>
+        <div class="mb-3">
+        <label for="actiefPassiefInput" class="form-label">Active/Passive</label>
+        <input type="text" class="form-control" id="actiefPassiefInput" name="actiefPassief" [(ngModel)]="railroadCrossingDetail.fld_actief_passief">
+        </div>
+        <div class="mb-3">
+        <label for="typepnInput" class="form-label">Type</label>
+        <input type="text" class="form-control" id="typepnInput" name="typepn" [(ngModel)]="railroadCrossingDetail.type_pn">
+        </div>
+        <div class="mb-3">
+        <label for="typelcInput" class="form-label">Type</label>
+        <input type="text" class="form-control" id="typelcInput" name="typelc" [(ngModel)]="railroadCrossingDetail.type_lc">
+        </div>
+        <div class="mb-3">
+        <label for="positionXInput" class="form-label">Position X</label>
+        <input type="text" class="form-control" id="positionXInput" name="positionX" [(ngModel)]="railroadCrossingDetail.fld_geo_x">
+        </div>
+        <div class="mb-3">
+        <label for="positionYInput" class="form-label">Position Y</label>
+        <input type="text" class="form-control" id="positionYInput" name="positionY" [(ngModel)]="railroadCrossingDetail.fld_geo_y">
+        </div>
+        <div class="mb-3">
+        <label for="zipcodeInput" class="form-label">Zip code and municipality</label>
+        <input type="text" class="form-control" id="zipcodeInput" name="zipcode" [(ngModel)]="railroadCrossingDetail.fld_postcode_en_gemeente">
+        </div>
+        <div class="mb-3">
+        <label for="longitudeInput" class="form-label">Longitude</label>
+        <input type="number" class="form-control" id="longitudeInput" name="longitude" [(ngModel)]="railroadCrossingDetail.position_du_passage_a_niveau.lon">
+        </div>
+        <div class="mb-3">
+        <label for="latitudeInput" class="form-label">Latitude</label>
+        <input type="number" class="form-control" id="latitudeInput" name="latitude" [(ngModel)]="railroadCrossingDetail.position_du_passage_a_niveau.lat">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary m-2">Edit</button>
+            <button type="button" class="btn btn-danger m-2" id="deleteButton" (click)="deleteRailroadCrossing(railroadCrossingDetail.id.toString())">Delete</button>
+        </div>
+    </form>
+</div>

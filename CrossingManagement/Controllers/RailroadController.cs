@@ -30,4 +30,54 @@ public class RailroadController : Controller
 
         return Ok(railroadCrossingRequest);
     }
+
+    [HttpGet]
+    [Route("{id}")]
+    public async Task<IActionResult> GetRailroadById([FromRoute] int id)
+    {
+        var railroadCrossing = await _context.RailroadCrossings.FirstOrDefaultAsync(x => x.Id == id);
+        if (railroadCrossing == null)
+        {
+            return NotFound();
+        }
+        return Ok(railroadCrossing);
+    }
+
+    [HttpPut]
+    [Route("{id:int}")]
+    public async Task<IActionResult> UpdateRailroadCrossing([FromRoute] int id, RailroadCrossing updateRailroadCrossingRequest)
+    {
+        var railroadCrossing = await _context.RailroadCrossings.FindAsync(id);
+        if (railroadCrossing == null)
+        {
+            return NotFound();
+        }
+        railroadCrossing.fld_naam_ramses = updateRailroadCrossingRequest.fld_naam_ramses;
+        railroadCrossing.fld_actief_passief = updateRailroadCrossingRequest.fld_actief_passief;
+        railroadCrossing.type_pn = updateRailroadCrossingRequest.type_pn;
+        railroadCrossing.fld_geo_x = updateRailroadCrossingRequest.fld_geo_x;
+        railroadCrossing.fld_geo_y = updateRailroadCrossingRequest.fld_geo_y;
+        railroadCrossing.fld_postcode_en_gemeente = updateRailroadCrossingRequest.fld_postcode_en_gemeente;
+        railroadCrossing.type_lc = updateRailroadCrossingRequest.type_lc;
+        railroadCrossing.lat = updateRailroadCrossingRequest.lat;
+        railroadCrossing.lon = updateRailroadCrossingRequest.lon;
+
+        await _context.SaveChangesAsync();
+        return Ok(railroadCrossing);
+    }
+
+    [HttpDelete]
+    [Route("{id}")]
+    public async Task<IActionResult> DeleteRailroadCrossing([FromRoute] int id)
+    {
+        var railroadCrossing = await _context.RailroadCrossings.FindAsync(id);
+        if (railroadCrossing == null)
+        {
+            return NotFound();
+        }
+        _context.RailroadCrossings.Remove(railroadCrossing);
+        await _context.SaveChangesAsync();
+
+        return Ok(railroadCrossing);
+    }
 }

@@ -11,6 +11,7 @@ import { RailroadCrossingsService } from '../services/railroad-crossings.service
 export class AddRailroadComponent implements OnInit {
 
   addRailroadCrossingRequest: RailroadCrossing = {
+    id: 0,
     fld_naam_ramses: '',
     fld_actief_passief: '',
     type_pn: '',

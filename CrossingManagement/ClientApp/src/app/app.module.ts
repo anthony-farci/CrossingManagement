@@ -26,7 +26,8 @@ import { EditRailroadComponent } from './edit-railroad/edit-railroad.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'add', component: AddRailroadComponent }
+      { path: 'add', component: AddRailroadComponent },
+      { path: 'edit/:id', component: EditRailroadComponent }
     ]),
   ],
   providers: [],
