@@ -1,43 +1,70 @@
 <div class="container">
     <h1>Add new railroad crossing</h1>
 
-    <form #form="ngForm" (ngSubmit)="addRailroadCrossing()">
-        <div class="mb-3">
+    <form #form="ngForm" class="needs-validation" (ngSubmit)="addRailroadCrossing()" novalidate>
+        <div class="mb-3 has-validation">
             <label for="nameInput" class="form-label">Name</label>
-            <input type="text" class="form-control" id="nameInput" name="name" [(ngModel)]="addRailroadCrossingRequest.fld_naam_ramses">
+            <input type="text" class="form-control" id="nameInput" name="name" [(ngModel)]="addRailroadCrossingRequest.fld_naam_ramses" required>
+            <div class="invalid-feedback">
+                Please choose a name.
+            </div>
         </div>
         <div class="mb-3">
-        <label for="actiefPassiefInput" class="form-label">Active/Passive</label>
-        <input type="text" class="form-control" id="actiefPassiefInput" name="actiefPassief" [(ngModel)]="addRailroadCrossingRequest.fld_actief_passief">
+            <label for="actiefPassiefInput" class="form-label">Active/Passive</label>
+            <input type="text" class="form-control" id="actiefPassiefInput" name="actiefPassief" [(ngModel)]="addRailroadCrossingRequest.fld_actief_passief" required>
+            <div class="invalid-feedback">
+                    This field is required.
+            </div>
         </div>
         <div class="mb-3">
-        <label for="typepnInput" class="form-label">Type</label>
-        <input type="text" class="form-control" id="typepnInput" name="typepn" [(ngModel)]="addRailroadCrossingRequest.type_pn">
+            <label for="typepnInput" class="form-label">Type_pn</label>
+            <input type="text" class="form-control" id="typepnInput" name="typepn" [(ngModel)]="addRailroadCrossingRequest.type_pn" required>
+            <div class="invalid-feedback">
+                    Please choose a type.
+            </div>
         </div>
         <div class="mb-3">
-        <label for="typelcInput" class="form-label">Type</label>
-        <input type="text" class="form-control" id="typelcInput" name="typelc" [(ngModel)]="addRailroadCrossingRequest.type_lc">
+            <label for="typelcInput" class="form-label">Type_lc</label>
+            <input type="text" class="form-control" id="typelcInput" name="typelc" [(ngModel)]="addRailroadCrossingRequest.type_lc" required>
+            <div class="invalid-feedback">
+                    Please choose a type.
+            </div>
         </div>
         <div class="mb-3">
-        <label for="positionXInput" class="form-label">Position X</label>
-        <input type="text" class="form-control" id="positionXInput" name="positionX" [(ngModel)]="addRailroadCrossingRequest.fld_geo_x">
+            <label for="positionXInput" class="form-label">Position X</label>
+            <input type="text" class="form-control" id="positionXInput" name="positionX" [(ngModel)]="addRailroadCrossingRequest.fld_geo_x" required>
+            <div class="invalid-feedback">
+                    This field is required.
+            </div>
         </div>
         <div class="mb-3">
-        <label for="positionYInput" class="form-label">Position Y</label>
-        <input type="text" class="form-control" id="positionYInput" name="positionY" [(ngModel)]="addRailroadCrossingRequest.fld_geo_y">
+            <label for="positionYInput" class="form-label">Position Y</label>
+            <input type="text" class="form-control" id="positionYInput" name="positionY" [(ngModel)]="addRailroadCrossingRequest.fld_geo_y" required>
+            <div class="invalid-feedback">
+                    This field is required.
+            </div>
         </div>
         <div class="mb-3">
-        <label for="zipcodeInput" class="form-label">Zip code and municipality</label>
-        <input type="text" class="form-control" id="zipcodeInput" name="zipcode" [(ngModel)]="addRailroadCrossingRequest.fld_postcode_en_gemeente">
+            <label for="zipcodeInput" class="form-label">Zip code and municipality</label>
+            <input type="text" class="form-control" id="zipcodeInput" name="zipcode" [(ngModel)]="addRailroadCrossingRequest.fld_postcode_en_gemeente" required>
+            <div class="invalid-feedback">
+                    This field is required.
+            </div>
         </div>
         <div class="mb-3">
-        <label for="longitudeInput" class="form-label">Longitude</label>
-        <input type="number" class="form-control" id="longitudeInput" name="longitude" [(ngModel)]="addRailroadCrossingRequest.position_du_passage_a_niveau.lon">
+            <label for="longitudeInput" class="form-label">Longitude</label>
+            <input type="number" class="form-control" id="longitudeInput" name="longitude" [(ngModel)]="addRailroadCrossingRequest.position_du_passage_a_niveau.lon" required>
+            <div class="invalid-feedback">
+                    This field is required.
+            </div>
         </div>
         <div class="mb-3">
-        <label for="latitudeInput" class="form-label">Latitude</label>
-        <input type="number" class="form-control" id="latitudeInput" name="latitude" [(ngModel)]="addRailroadCrossingRequest.position_du_passage_a_niveau.lat">
+            <label for="latitudeInput" class="form-label">Latitude</label>
+            <input type="number" class="form-control" id="latitudeInput" name="latitude" [(ngModel)]="addRailroadCrossingRequest.position_du_passage_a_niveau.lat" required>
+            <div class="invalid-feedback">
+                    This field is required.
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary" (click)="validate()">Save</button>
     </form>
 </div>
